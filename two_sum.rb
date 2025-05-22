@@ -14,3 +14,19 @@ def two_sum(nums, target)
     return [ index , index_complement_num ]
   end
 end
+
+# AI Solution
+# Runtime 3ms and Beats 55.70%
+# Memory 212.40 and Beats 49.14%
+def two_sum(nums, target)
+  seen_nums = {} # A hash to store numbers and their indices
+
+  nums.each_with_index do |num, index|
+    complement = target - num
+    if seen_nums.key?(complement)
+      return [ seen_nums[complement], index ]
+    else
+      seen_nums[num] = index
+    end
+  end
+end
